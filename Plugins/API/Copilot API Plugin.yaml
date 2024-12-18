@@ -1,0 +1,14 @@
+Descriptor:
+  Name: Defender Specific Alert Details Plugin
+  DisplayName: Defender Specific Alert Details Plugin
+  Description: The skills in this plugin will help get Defender alert details via Graph API Call
+  DescriptionForModel: The skills in this plugin will help get specific defender alert details based on provided incident or alert id.
+  SupportedAuthTypes:
+    - AADDelegated
+  Authorization:
+    Type: AADDelegated
+    EntraScopes: https://graph.microsoft.com/.default
+SkillGroups:
+  - Format: API
+    Settings:
+      OpenApiSpecUrl: https://raw.githubusercontent.com/samilamppu/CopilotforSecurity/refs/heads/main/Plugins/API/OpenAPISpecs/GraphAPI-Alerts-Incs-Spec.yaml
