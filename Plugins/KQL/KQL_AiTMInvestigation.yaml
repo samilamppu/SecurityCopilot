@@ -55,6 +55,31 @@ SkillGroups:
               | where ClientAppUsed == "Browser" 
               | where LogonType has "interactiveUser" 
               | summarize Countries = make_set(Country) by AccountObjectId, AccountDisplayName 
+
+      - Name: AiTMFindCreatedInboxRules
+        DisplayName: Find new email inbox rules
+        Description: >
+          Use this query to find new email Inbox rules created during a suspicious sign-in session.
+        ExamplePrompt:
+          - "Find new email Inbox rules created during a suspicious sign-in session"
+          - "List inbox rules from a suspicious sign-in session"
+        Settings:
+          Target: Defender
+          Template: |-
+            //Find suspicious tokens tagged by AAD "Anomalous Token"  or "BEC financial fraud" alerts
+            let suspiciousSessionIds = materialize(
+            AlertInfo
+            | where Timestamp > ago(7d)
+            | where Title == "Anomalous Token" or Title == "BEC financial fraud"
+            | join (AlertEvidence | where Timestamp > ago(7d) | where EntityType == "CloudLogonSession") on AlertId
+            | project sessionId = todynamic(AdditionalFields).SessionId);
+            //Find Inbox rules created during a session that used the anomalous token
+            let hasSuspiciousSessionIds = isnotempty(toscalar(suspiciousSessionIds));
+            CloudAppEvents
+            | where hasSuspiciousSessionIds
+            | where Timestamp > ago(21d)
+            | where ActionType == "New-InboxRule"
+            | where RawEventData.SessionId in (suspiciousSessionIds) 
               
       - Name: AiTMBehaviorInfo
         DisplayName: Investigate user behaviors
