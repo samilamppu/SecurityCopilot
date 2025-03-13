@@ -10,7 +10,7 @@ SkillGroups:
       - Name: AiTMInvestigation
         DisplayName: AiTM Investigation
         Description: >
-          Search for cookies that were first seen after OfficeHome application authentication (as seen when the user authenticated to the AiTM phishing site) and then seen being used in other applications in other countries.
+          Search for cookies that were first seen after OfficeHome application authentication (as seen when the user authenticated to the AiTM phishing site) and then used in other applications in other countries. The query is created by Microsoft DART team, and the initial version is found in 'https://www.microsoft.com/en-us/security/blog/2022/07/12/from-cookie-theft-to-bec-attackers-use-aitm-phishing-sites-as-entry-point-to-further-financial-fraud/?msockid=28c8c6feb17d6e740accd40eb04a6f51'.
         ExamplePrompt:
           - "Get possible AiTM related sign-ins correlated to OfficeHome application"
           - "Fetch OfficeHome application signins where the same cookie was used"
@@ -22,7 +22,7 @@ SkillGroups:
         Settings:
           Target: Defender
           Template: |-
-            // Search for cookies that were first seen after OfficeHome application authentication (as seen when the user authenticated to the AiTM phishing site) and then seen being used in other applications in other countries.
+            // Search for cookies that were first seen after OfficeHome application authentication (as seen when the user authenticated to the AiTM phishing site) and then seen being used in other applications in other countries. The query is created by Microsoft DART team, and the initial version is found in 'https://www.microsoft.com/en-us/security/blog/2022/07/12/from-cookie-theft-to-bec-attackers-use-aitm-phishing-sites-as-entry-point-to-further-financial-fraud/?msockid=28c8c6feb17d6e740accd40eb04a6f51'.
               let OfficeHomeSessionIds = 
               AADSignInEventsBeta
               | where Timestamp > ago({{DaysAgo}}d)
@@ -42,7 +42,7 @@ SkillGroups:
       - Name: AiTMCountrySummary
         DisplayName: AiTM Investigation Summary per Country
         Description: >
-          summarize for each user the countries that authenticated to the OfficeHome application and find uncommon or untrusted ones.
+          Summarize for each user the countries that authenticated to the OfficeHome application and find uncommon or untrusted ones. The query is created by Microsoft DART team, and the initial version is found in 'https://www.microsoft.com/en-us/security/blog/2022/07/12/from-cookie-theft-to-bec-attackers-use-aitm-phishing-sites-as-entry-point-to-further-financial-fraud/?msockid=28c8c6feb17d6e740accd40eb04a6f51'.
         ExamplePrompt:
           - "Summarize user sign-ins per country and per office home application"
           - "Summarize user sign-ins to Office Home application per country"
