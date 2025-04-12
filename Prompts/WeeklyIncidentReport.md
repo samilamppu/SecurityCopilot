@@ -21,21 +21,7 @@ The ultimate solution would be to automate the flow through Logic Apps (coming s
    
 4. **Create weekly report**:
    ```
-   /AskGPT - Generate a Weekly Incident Report based on previous responses. 
-
-Take into account the following requirements: 
-- Use tables whenever possible for better visualization. 
-- Start with the incident and tactics summary tables by providing the total number of incidents reported during the period, highlighting any patterns or anomalies observed in the volume, and including key parameters from the grouping and analyzing incidents: incident statuses (open, resolved, and in progress) and MITRE tactics. 
-- Highlight the resolution rate and any incidents that have remained unresolved for extended durations.
-- After the incident summary, use the combined table (Combined Incident Details for Better Visualization) to summarize incidents in detail.
-
-Based on MDTI recommendations and MDTI analyze impact of incidents, provide recommendations with a focus on the following key topics: 
-- Related threat impact and mitigations visualize this part by using the following tables: Security Posture Recommendations from Defender XDR & Recommendations from Threat Intelligence Based on MITRE Tactics
-
-In addition, propose actionable steps to reduce Mean Time to Triage (MTTT) and Mean Time to Respond (MTTR) based on observed inefficiencies. 
-- Provide recommendations based on trends in severity and tactics
-- Provide additional insights for improving operational effectiveness, such as optimizing resources, leveraging automation, or enhancing monitoring. 
-- Ensure the report is concise, data-driven, and structured to support decision-making and proactive responses.
+   /AskGPT - Generate a Weekly Incident Report based on previous responses. Take into account the following requirements: Use tables whenever possible for better visualization. Start with the incident and tactics summary tables by providing the total number of incidents reported during the period, highlighting any patterns or anomalies observed in the volume, and including key parameters from the grouping and analyzing incidents: incident statuses (open, resolved, and in progress) and MITRE tactics. Highlight the resolution rate and any incidents that have remained unresolved for extended durations. After the incident summary, use the combined table (Combined Incident Details for Better Visualization) to summarize incidents in detail. Based on MDTI recommendations and MDTI analyze impact of incidents, provide recommendations with a focus on the following key topics: Related threat impact and mitigations visualize this part by using the following tables: Security Posture Recommendations from Defender XDR & Recommendations from Threat Intelligence Based on MITRE Tactics. In addition, propose actionable steps to reduce Mean Time to Triage (MTTT) and Mean Time to Respond (MTTR) based on observed inefficiencies. Provide recommendations based on trends in severity and tactics. Provide additional insights for improving operational effectiveness, such as optimizing resources, leveraging automation, or enhancing monitoring. Ensure the report is concise, data-driven, and structured to support decision-making and proactive responses.
    ```
 
 This flow is based on the Microsoft template. It has been further developed to enable automated incident reporting through Az Logic Apps by correlating MDTI data with security posture enhancements. 
