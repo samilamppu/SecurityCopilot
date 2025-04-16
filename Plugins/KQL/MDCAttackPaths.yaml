@@ -1,0 +1,41 @@
+//This KQL plugin is based on Thomas Naunheim's MDC Attack Path query
+Descriptor:
+  Name: MDCAttackPaths
+  DisplayName: Get Microsoft Defender for Cloud Attack Paths
+  Description: >
+    This plugin allows you to get Microsoft Defender for Cloud Attack Paths. It is a KQL plugin that can be used to query the Microsoft Defender for Cloud data.
+
+SkillGroups:
+  - Format: KQL
+    Skills:
+      - Name: MDCAttackPaths
+        DisplayName: MDC Attack Paths
+        Description: >
+          Search for Attack Paths in Microsoft Defender for Cloud. The attack paths are correlated to security alerts. Only high severity and Azure resources are listed at this version.
+        ExamplePrompt:
+          - "Get Microsoft Defender for Cloud Attack Paths"
+          - "Get Microsoft Defender for Cloud Attack Paths where the alert severity is high"
+        Settings:
+          Target: Defender
+          Template: |-
+            // Search for Attack Paths in Microsoft Defender for Cloud
+            // The attack paths are correlated to security alerts. Only high severity and Azure resources are listed at this version.
+            // The query returns the attack path display name, attack story, attack description, resource ID, alert time generated, alert name, alert severity, alert link, and alert description.
+            arg("").securityresources
+            | where type == "microsoft.security/attackpaths"
+            | extend AttackPathDisplayName = tostring(properties["displayName"])
+            | mvexpand (properties.graphComponent.entities)
+            | extend Entity = parse_json(properties_graphComponent_entities)
+            | extend ResourceId = tostring(tolower(Entity.entityIdentifiers.azureResourceId))
+            | where isnotempty(ResourceId)
+            | extend AttackStory = parse_json(properties.attackStory)
+            | extend AttackDescription = parse_json(properties.description)
+            | project AttackPathDisplayName, AttackStory, AttackDescription, ResourceId
+            | join hint.remote=right (SecurityAlert
+                | extend EntitiesDynamicArray = parse_json(Entities) | mv-expand EntitiesDynamicArray
+                | extend Entitytype = tostring(parse_json(EntitiesDynamicArray).Type), EntityName = tostring(parse_json(EntitiesDynamicArray).Name)
+                | where Entitytype == "azure-resource"
+                | extend ResourceId = tostring(tolower(EntitiesDynamicArray.ResourceId))
+                | project AlertTimeGenerated = TimeGenerated, AlertName, AlertSeverity, ResourceId, AlertLink, AlertDescription = Description
+            ) on ResourceId
+            | project-away ResourceId1
