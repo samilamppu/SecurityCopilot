@@ -4,22 +4,29 @@ info:
   description: >
     Retrieves all Microsoft Entra Conditional Access policies via the Microsoft Graph Beta API
     (GET /identity/conditionalAccess/policies). :contentReference[oaicite:0]{index=0}
-  version: "v1"
+  version: "1.0.0"
 servers:
   - url: https://graph.microsoft.com/beta
+
 paths:
   /identity/conditionalAccess/policies:
     get:
       operationId: listConditionalAccessPolicies
-      summary: List Conditional Access Policies
       description: >
         Returns a collection of conditionalAccessPolicy objects in the tenant
         :contentReference[oaicite:1]{index=1}
       ExamplePrompt:
         - "list all conditional access policies"
         - "show me conditional access policies"
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
+      Parameters:
+                - in: query
+                  name: $filter
+                  schema:
+                      type: string
+                  required: true
+                  description: Retrieves all Microsoft Entra Conditional Access policies via the Microsoft Graph Beta API.
+      Responses:
+          "200":
+                  description: OK
+                  content:
+                      application/json:
