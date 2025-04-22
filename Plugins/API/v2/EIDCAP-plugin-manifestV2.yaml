@@ -10,4 +10,4 @@ Descriptor:
 SkillGroups:
   - Format: API
     Settings:
-      OpenApiSpecUrl: https://raw.githubusercontent.com/samilamppu/SecurityCopilot/refs/heads/main/Plugins/API/EIDCAP-APIv2.yaml
+      OpenApiSpecUrl: https://raw.githubusercontent.com/samilamppu/SecurityCopilot/refs/heads/main/Plugins/API/v2/EIDCAP-APIv2.yaml
