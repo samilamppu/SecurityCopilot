@@ -9,9 +9,5 @@ Descriptor:
     EntraScopes: https://graph.microsoft.com/.default
 SkillGroups:
   - Format: API
-  - SkillsetDescriptor:                # ←‑‑‑ required
-      Name: ConditionalAccessPolicyAPI
-      DisplayName: Conditional Access Policy API
-      Description: List and get Conditional Access policies with Microsoft Graph
     Settings:
       OpenApiSpecUrl: https://raw.githubusercontent.com/samilamppu/SecurityCopilot/refs/heads/main/Plugins/API/EIDCAP-APIv2.yaml
