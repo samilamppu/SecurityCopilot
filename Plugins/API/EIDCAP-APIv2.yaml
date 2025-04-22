@@ -1,10 +1,10 @@
 openapi: 3.0.0
 
 info:
-  title: Conditional Access Policy Plugin
+  title: Microsoft Graph Conditional Access Policies
   description: >
-    Skills for listing and retrieving Microsoft Entra Conditional Access
-    policies through Microsoft Graph v1.0.
+    Skills for listing and retrieving Microsoft Entra Conditional Access
+    policies through Microsoft Graph v1.0.
   version: "v1"
 
 servers:
@@ -15,7 +15,7 @@ paths:
     get:
       operationId: ListConditionalAccessPolicies
       description: >
-        Lists all Conditional Access policies in the tenant.  
+        Lists all Conditional Access policies in the tenant.  
         Supports standard OData query options (`$filter`, `$orderby`, `$top`,
         `$skip`, `$count`, `$select`). :contentReference[oaicite:0]{index=0}
       ExamplePrompt:
@@ -54,14 +54,14 @@ paths:
     get:
       operationId: GetConditionalAccessPolicyById
       description: >
-        Retrieve the properties of a single Conditional Access policy. :contentReference[oaicite:1]{index=1}
+        Retrieve the properties of a single Conditional Access policy. :contentReference[oaicite:1]{index=1}
       parameters:
         - in: path
           name: policyId
           schema:
             type: string
           required: true
-          description: Conditional Access policy GUID.
+          description: Conditional Access policy GUID.
       responses:
         "200":
           description: OK
