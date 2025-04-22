@@ -11,7 +11,7 @@ servers:
   - url: https://graph.microsoft.com/v1.0   # Graph root for /identity/* paths
 
 paths:
-  /identity/conditionalAccess/policies?$select=id,displayName,state:
+  /identity/conditionalAccess/policies:
     get:
       operationId: ListConditionalAccessPolicies
       description: >
