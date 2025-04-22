@@ -1,30 +1,25 @@
 openapi: 3.0.0
-
 info:
-    title: Entra ID Conditional Access Plugin
-    description: Skills for getting CA Policies via Graph API Call
-    version: "v1"
-
+  title: Conditional Access Policies Plugin
+  description: >
+    Retrieves all Microsoft Entra Conditional Access policies via the Microsoft Graph Beta API
+    (GET /identity/conditionalAccess/policies). :contentReference[oaicite:0]{index=0}
+  version: "v1"
 servers:
-    - url: https://graph.microsoft.com/beta/identity/conditionalAccess/
-
+  - url: https://graph.microsoft.com/beta
 paths:
-    /policies:
-        get:
-            operationId: GetCAPolicies
-            description: List all CA policies
-            ExamplePrompt:
-              - 'List my Entra ID CA policies'
-              - 'Get my CA policies'
-            parameters:
-                - in: query
-                  name: $filter
-                  schema:
-                      type: string
-                  required: true
-                  description: A filter in the format of "incidentid eq id" where ID is an incident ID provided by the user.
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
+  /identity/conditionalAccess/policies:
+    get:
+      operationId: listConditionalAccessPolicies
+      summary: List Conditional Access Policies
+      description: >
+        Returns a collection of conditionalAccessPolicy objects in the tenant
+        :contentReference[oaicite:1]{index=1}
+      ExamplePrompt:
+        - "list all conditional access policies"
+        - "show me conditional access policies"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:

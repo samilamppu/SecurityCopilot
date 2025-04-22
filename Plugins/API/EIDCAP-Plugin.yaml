@@ -1,0 +1,13 @@
+Descriptor:
+  Name: GraphConditionalAccess
+  DisplayName: Microsoft Graph Conditional Access Policies
+  Description: Retrieve Conditional Access policies from Microsoft Graph Beta
+  SupportedAuthTypes:
+    - AADDelegated
+  Authorization:
+    Type: AADDelegated
+    EntraScopes: https://graph.microsoft.com/.default
+SkillGroups:
+  - Format: API
+    Settings:
+      OpenApiSpecUrl: https://raw.githubusercontent.com/samilamppu/SecurityCopilot/refs/heads/main/Plugins/API/EIDCAP-API-Authentication.yaml
