@@ -1,0 +1,71 @@
+openapi: 3.0.0
+
+info:
+  title: Conditional Access Policy Plugin
+  description: >
+    Skills for listing and retrieving Microsoft Entra Conditional Access
+    policies through Microsoft Graph v1.0.
+  version: "v1"
+
+servers:
+  - url: https://graph.microsoft.com/v1.0   # Graph root for /identity/* paths
+
+paths:
+  /identity/conditionalAccess/policies?$select=id,displayName,state:
+    get:
+      operationId: ListConditionalAccessPolicies
+      description: >
+        Lists all Conditional Access policies in the tenant.  
+        Supports standard OData query options (`$filter`, `$orderby`, `$top`,
+        `$skip`, `$count`, `$select`). :contentReference[oaicite:0]{index=0}
+      ExamplePrompt:
+        - "show me all conditional access policies"
+        - "list enabled conditional access policies"
+      parameters:
+        - in: query
+          name: $filter
+          schema:
+            type: string
+          required: false
+          description: >
+            OData filter, e.g. `state eq 'enabled'`
+            or `displayName startswith 'MFA'`.
+        - in: query
+          name: $orderby
+          schema:
+            type: string
+          required: false
+          description: >
+            Order the results, e.g. `displayName asc`.
+        - in: query
+          name: $top
+          schema:
+            type: integer
+          required: false
+          description: >
+            Maximum number of policies to return.
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json: {}
+
+  /identity/conditionalAccess/policies/{policyId}?$select=id,displayName,state,conditions,grantControls:
+    get:
+      operationId: GetConditionalAccessPolicyById
+      description: >
+        Retrieve the properties of a single Conditional Access policy. :contentReference[oaicite:1]{index=1}
+      parameters:
+        - in: path
+          name: policyId
+          schema:
+            type: string
+          required: true
+          description: Conditional Access policy GUID.
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json: {}
+
+components: {}

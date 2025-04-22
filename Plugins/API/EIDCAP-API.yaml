@@ -11,7 +11,7 @@ servers:
 paths:
   /identity/conditionalAccess/policies:
     get:
-      operationId: listConditionalAccessPolicies
+      operationId: ListConditionalAccessPolicies
       description: >
         Returns a collection of conditionalAccessPolicy objects in the tenant
         :contentReference[oaicite:1]{index=1}
@@ -23,7 +23,7 @@ paths:
                   name: $filter
                   schema:
                       type: string
-                  required: true
+                  required: false
                   description: Retrieves all Microsoft Entra Conditional Access policies via the Microsoft Graph Beta API.
       Responses:
           "200":
