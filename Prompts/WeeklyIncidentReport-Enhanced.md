@@ -21,7 +21,7 @@ The ultimate solution would be to automate the flow through Logic Apps (coming s
 
 4. **Analyze Defender for Cloud Attack Paths and Correlate them to alerts**
     ```
-    /askGPT based on the responses above give me a breakdown of status of the incidents and breakdown of incident severity (low, medium, high) including MITRE ATT&CK tactics. Make sure to include all incidents in the data from the fist prompt. If possible, include combined table that contains all data for better visualization.
+    /AskGPT based on the responses above give me a breakdown of status of the incidents and breakdown of incident severity (low, medium, high) including MITRE ATT&CK tactics. Make sure to include all incidents in the data from the fist prompt. If possible, include combined table that contains all data for better visualization.
     ```
    
 5. **MDTI Recommendations for incidents based on MITRE ATT&CK tactics:**
