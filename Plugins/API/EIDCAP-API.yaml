@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Conditional Access Policy Plugin
+  title: Conditional Access Policies Plugin
   description: >
     Retrieves all Microsoft Entra Conditional Access policies via the Microsoft Graph Beta API
     (GET /identity/conditionalAccess/policies). :contentReference[oaicite:0]{index=0}
