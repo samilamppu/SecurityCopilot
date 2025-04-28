@@ -6,7 +6,7 @@ The ultimate solution would be to automate the flow through Logic Apps (coming s
 
 1. **Get Sentinel incidents from the past 7 days**
     ```
-   Get me Sentinel Incidents from the past 14 days. Use the securityincidents data table. Do not set any provider in the KQL query. For each unique IncidentNumber, return only the most recent record based on TimeGenerated. Include the following fields: IncidentNumber, Title, AdditionalData.tactics, AdditionalData.techniques, Status, Severity, TimeGenerated, and ClosedTime.
+   Get me Sentinel Incidents from the past 7 days. Use the securityincidents data table. Do not set any provider in the KQL query. For each unique IncidentNumber, return only the most recent record based on TimeGenerated. Include the following fields: IncidentNumber, Title, AdditionalData.tactics, AdditionalData.techniques, Status, Severity, TimeGenerated, and ClosedTime.
     ```
 
 2. **Get Sentinel alerts from the past 7 days**
@@ -19,7 +19,7 @@ The ultimate solution would be to automate the flow through Logic Apps (coming s
     /MDCAttackPaths - Analyze the correlation between attack paths and alert data (make sure to include all alerts from the previous prompt) by comparing entities involved in each. Identify which entities found in attack paths are also present in the alerts. The table should include the following columns: - Title (of the alert) - Severity - Timestamp - Entity - AlertId - AlertLink - AttackPath (mark as true if an attack path exists to the entity, otherwise false). Present the results in a table for better visualization.
     ```
 
-4. **Analyze Defender for Cloud Attack Paths and correlate them to alerts**
+4. **Analyze and group incident status**
     ```
     /AskGPT based on the responses above give me a breakdown of status of the incidents and breakdown of incident severity (low, medium, high) including MITRE ATT&CK tactics. Make sure to include all incidents in the data from the fist prompt. If possible, include combined table that contains all data for better visualization.
     ```
