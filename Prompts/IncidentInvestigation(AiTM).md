@@ -1,4 +1,4 @@
-# Enriched Incident Investigation
+# Enriched AiTM Incident Investigation
 
 Required Plugin(s): *Entra, ListConditionalAccessPolicies, AiTM-investigation*
 
