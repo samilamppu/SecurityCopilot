@@ -10,8 +10,12 @@ These prompts can be used as a response CISO's question: *'We leverage Microsoft
 
 **Daily Security Posture Report flow**
 
-<div align="center">
+Prompts flow to create security posture report enriched by MDC attack paths.
+
 <img src="https://raw.githubusercontent.com/samilamppu/SecurityCopilot/main/Media/DailySecurityPosture-flow.png" alt="DailyPostureReport-flow" width="400" height="500">
+
+
+**Prompts**
 
 The initial investigation start by getting the alerts which will be correlated with Defender for Cloud attack paths. Next, we will gather MDTI data and correlate top threat to the organization data.
 
