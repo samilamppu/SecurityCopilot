@@ -1,17 +1,24 @@
 # Enriched AiTM Incident Investigation
 
-Required Plugin(s): *Entra, ListConditionalAccessPolicies, AiTM-investigation*
+Required Plugin(s): *Entra, Conditional Access Policies Plugin (custom API plugin), AiTM-investigation (custom KQL plugin)*
 
-These prompts can be used for further investigating AiTM attack to response CISO's question: 'I thought our CA policies require phishing-resistant MFA, and our environment would be protected from AiTM attacks?'
+Plugins:
+- [Conditional Access Policies plugin](https://github.com/samilamppu/SecurityCopilot/blob/main/Plugins/API/EIDCAP-API.yaml)
+- [AiTM Investigation KQL Plugin](https://github.com/samilamppu/SecurityCopilot/blob/main/Plugins/KQL/KQL_AiTMInvestigation.yaml)
+
+
+These prompts can be used for further investigating of an AiTM attack to response CISO's question: 'I thought our CA policies require phishing-resistant MFA, and our environment would be protected from AiTM attacks?'
+
+The initial investigation starts from the Defender XDR portal using Security Copilot embedded mode. After finalizing the investigation in the XDR portal, analyst can enrich the investigation in the standalone SC portal using these prompts.
 
 1. **Get user information**
     ```
-    Review detailed user information for <userPrincipalName> using the Microsoft Entra plugin. Include the following data: sign-n activity, device registration status, authentication methods (especially MFA), assigned roles, risk detections, and alert history. Summarize the user's current risk posture in 3-4 bullet points.
+    Retrieve detailed user information for <userPrincipalName> using the Microsoft Entra plugin. Use the Microsoft Entra plugin to retrieve the user's group memberships.
     ```
 
 2. **List environment CA policies**
     ```
-    Execute /ListConditionalAccessPolicies to retrieve all Conditional Access policies, including policy name, conditions, grant controls, and enforcement status
+    Execute /ListConditionalAccessPolicies to retrieve all Conditional Access policies, including policy name, conditions, grant controls, and enforcement status.
     ```
 
 3. **Evaluate CA policies**
@@ -21,7 +28,7 @@ These prompts can be used for further investigating AiTM attack to response CISO
 
 4. **Correlate CA policies to user**
     ```
-    For the CA policies retrieved above, check if <userPrincipalName> is directly assigned or part of any assigned group/role. Use the Microsoft Entra plugin to retrieve the user's group memberships and match against the policy assignments.
+    For the following policies retrieved on the previous prompt: [<List CA policies here, separated with comma, policy1, policy2, etc>], check if '<userPrincipalName' is directly assigned or part of any assigned group/role. Use the Microsoft Entra plugin to retrieve the user's group memberships and match against the policy assignments.
     ```
 
 5. **Evaluate AiTM Activities**
