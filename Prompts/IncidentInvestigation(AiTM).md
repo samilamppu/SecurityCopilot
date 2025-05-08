@@ -3,11 +3,11 @@
 Required Plugin(s): *Entra, Conditional Access Policies Plugin (custom API plugin), AiTM-investigation (custom KQL plugin)*
 
 Plugins:
-- [Conditional Access Policies plugin](https://github.com/samilamppu/SecurityCopilot/blob/main/Plugins/API/EIDCAP-API.yaml)
+- [Conditional Access Policies plugin](https://github.com/samilamppu/SecurityCopilot/blob/main/Plugins/API/EIDCAP-plugin-manifest.yaml)
 - [AiTM Investigation KQL Plugin](https://github.com/samilamppu/SecurityCopilot/blob/main/Plugins/KQL/KQL_AiTMInvestigation.yaml)
 
 
-These prompts can be used for further investigating of an AiTM attack to response CISO's question: *'I thought our CA policies require phishing-resistant MFA, and our environment would be protected from AiTM attacks?'*
+These prompts can be used for further investigating of an AiTM attack as a response CISO's question: *'I thought our CA policies require phishing-resistant MFA, and our environment would be protected from AiTM attacks?'*
 
 **Incident investigation flow**
 
