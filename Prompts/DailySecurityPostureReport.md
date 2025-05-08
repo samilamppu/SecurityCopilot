@@ -1,4 +1,4 @@
-# Enriched AiTM Incident Investigation
+# Daily Security Posture Report
 
 Required Plugin(s): *MDCAttackPath Plugin*
 
