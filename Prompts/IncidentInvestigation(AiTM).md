@@ -10,11 +10,12 @@ Plugins:
 These prompts can be used for further investigating of an AiTM attack to response CISO's question: *'I thought our CA policies require phishing-resistant MFA, and our environment would be protected from AiTM attacks?'*
 
 **Incident investigation flow**
+
 <a href="https://raw.githubusercontent.com/samilamppu/SecurityCopilot/main/Media/Flow.png" target="_blank"><img src="./Media/Flow.png" width="700" /></a>
 
 The initial investigation starts from the Defender XDR portal using Security Copilot embedded mode. After finalizing the investigation in the XDR portal, analyst can enrich the investigation in the standalone SC portal using these prompts.
 
-<a href="https://raw.githubusercontent.com/samilamppu/SecurityCopilot/main/Media/IncidentInvestigation.png" target="_blank"><img src="./Media/IncidentInvestigation.png" width="700" /></a>
+<a href="https://raw.githubusercontent.com/samilamppu/SecurityCopilot/main/Media/IncidentSummary.png" target="_blank"><img src="./Media/IncidentSummary.png" width="700" /></a>
 
 1. **Get user information**
     ```
