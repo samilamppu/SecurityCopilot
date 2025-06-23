@@ -11,7 +11,7 @@ These prompts can be used for further investigating of an AiTM attack as a respo
 
 **Incident investigation flow**
 
-<img src="https://raw.githubusercontent.com/samilamppu/SecurityCopilot/main/Media/Flow.png" alt="Incident investigation flow" width="600">
+<img src="https://raw.githubusercontent.com/samilamppu/SecurityCopilot/main/Media/Flow-2.png" alt="Incident investigation flow" width="600">
 
 The initial investigation starts from the Defender XDR portal using Security Copilot embedded mode. After finalizing the investigation in the XDR portal, analysts can enrich the investigation in the standalone SC portal using these prompts.
 
