@@ -24,21 +24,21 @@ The initial investigation starts from Entra Identity Protection, and analysts ca
 2. **Enrich Impacted user information**
     ```
     Using the previously returned dataset of impacted users (including User Principal Name, IP address, sign-in times, location, and risk event type): For each user, generate a concise and actionable summary addressed to both a security analyst and a security engineer. Follow this structure:
-    1. **Start with the User Principal Name (UPN)**
-    2. **Summarize significant trends or behavioral anomalies**, such as:
+    1. Start with the User Principal Name (UPN)
+    2. Summarize significant trends or behavioral anomalies, such as:
     - Unusual login times
     - Geo-location changes or travel patterns
     - Use of unfamiliar or high-risk applications
-    3. **Reference past sign-in history over the last 7 days**, including:
+    3. Reference past sign-in history over the last 7 days, including:
     - Typical login patterns vs. these events
     - MFA or conditional access policy usage
     - Any repeat appearances in other risk events or incidents
-    4. **Application context**, including:
+    4. Application context, including:
     If the exact app is not listed in the prior data, use the risk event type and sign-in context to infer whether it relates to:
     - Microsoft 365 (Exchange, Teams, SharePoint, etc.)
     - Azure AD-integrated SaaS applications
     - Admin portals or privileged management apps
-    5. **Actionable recommendations**, such as:
+    5. Actionable recommendations, such as:
     - Suggested user investigation or escalation
     - Conditional access or authentication policy adjustments
     - Tagging or labeling for further watch
@@ -53,4 +53,10 @@ The initial investigation starts from Entra Identity Protection, and analysts ca
 
 An example output from the last prompt where IP-addressess are analyzed.
 
-  
+**Prompt**
+
+ <img src="https://raw.githubusercontent.com/samilamppu/SecurityCopilot/main/Media/AbuseIPDB-prompt.png" alt="Querying IPs from AbuseIPDB" width="600">
+
+**Output**
+
+ <img src="https://raw.githubusercontent.com/samilamppu/SecurityCopilot/main/Media/geo-1.png" alt="Response after analysis" width="600">
