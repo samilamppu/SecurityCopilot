@@ -55,7 +55,7 @@ An example output from the last prompt where IP-addressess are analyzed.
 
 **Prompt**
 
- <img src="https://raw.githubusercontent.com/samilamppu/SecurityCopilot/main/Media/AbuseIPDB-prompt.png" alt="Querying IPs from AbuseIPDB" width="600">
+ <img src="https://raw.githubusercontent.com/samilamppu/SecurityCopilot/main/Media/AbuseIPDB-prompt.png" alt="Querying IPs from AbuseIPDB" width="400">
 
 **Output**
 
